@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<title>Skyloft</title>
+	<meta name="author" content="Jennifer, Roxana, Eduard">
+	<link rel="stylesheet" href="css/skyloft.css">
+	<script src="js/jq.min.js"></script>
+	<script src="js/jqui.min.js"></script>
+</head>
+<body>
+	<div class="infogr">
+		<section class="infogr__UI">
+			<ul class="nav">
+				<li><a href="#" data-name="zirkel" class="nav-link">Magischer Zirkel</a></li>
+				<li><a href="#" data-name="pfad" class="nav-link">Silberner pfad</a></li>
+				<li><a href="#" data-name="tour" class="nav-link">Mammut Tour</a></li>
+				<li><a href="#" data-name="horst" class="nav-link">Adlerhorst</a></li>
+				<li><a href="#" data-name="circus" class="nav-link">Flying circus</a></li>
+			</ul>
+			<div class="display">
+				<h1>Wählen Sie oben einen Parkours aus</h1>
+				<span class="sub-h1"></span>
+				<p></p>
+			</div>
+		</section>
+		<section class="infogr__main-locs">
+			<div class="loc invis bbq"></div>
+			<div class="loc invis sea"></div>
+			<div class="loc invis playgr"></div>
+			<div class="loc invis shop"></div>
+			<div class="loc invis entry"></div>
+			<div class="loc invis parking"></div>
+		</section>
+		<aside class="infogr__map-helper">
+			<h3>Legende</h3>
+			<a class="toggle-info" href="#">&#9662;</a>
+			<img src="img/info.png" alt="Legende">
+		</aside>
+	</div>
+	<script>
+		$(document).ready(function(){
+			// wating for your commands, sir
+			var toggleInfo 	= $('.toggle-info'),
+				navLink 	= $('.nav-link');
+
+			// create a multidimensional js object with all texts in it
+			var parcours = { 
+				zirkel: {
+					title: "Magischer Zirkel", 
+					dif: "für Einsteiger, Familien und Kinder.", 
+					desc: "Hier können Sie Ihre ersten Hochseil-Erfahrungen sammeln.", 
+					stations: "Stationen: Kletterstart, Tanzende Balken, Schlingergrad, Okerbrücke, Schlaufengasse, Back to earth"},
+				pfad: {
+					title: "Silberner Pfad", 
+					dif: "für mutige Einsteiger und durchschnittlich Sportliche.", 
+					desc: "Erklimmen Sie die Baumkronen und fühlen Sie sich wie Robin Hood.", 
+					stations: "Stationen: Kletterstart, Tanzende Balken, Schlingergrad, Himmelsstürmer, Baum-Kaskaden, Teufelsschlucht, Wildwasserbrücke, Schwebebalken, Schlaufengasse, Back to earth"},
+				tour: {
+					title: "Mammut-Tour", 
+					dif: "für Fortgeschrittene.", 
+					desc: "Beim Erklimmen der hohen Wipfel sind Kraft und Ausdauer gefragt.", 
+					stations: "Stationen: Kletterwand, Himmelsstürmer, Baum-Kaskaden, Hexensprung, Netzbrücke, Wildwasserbrücke, Schwebebalken, Okerbrücke, Kreuzgang per Seil, Schwingende Reifen, Netz der Spinne"},
+				horst: {
+					title: "Adlerhorst", 
+					dif: "Dies schaffen nur Proficlimber.", 
+					desc: "Die sehr schwer zu erkletternden Elemente in 15 Meter Höhe sind eine echte Herausforderung.", 
+					stations: "Stationen: Kletterstart, Tanzende Balken, Schlingergrad, Himmelsstürmer, Adlerhorst, Übergang, Milanswipfel, Teufelsschlucht, Wildwasserbrücke, Schwebebalken, Jump down"},
+				circus: {
+					title: "Flying Circus", 
+					dif: "Für Profis.", 
+					desc: "Wer den Nervenkitzel liebt, begibt sich auf das Drahtseil und auf unseren ultimativen Geschicklichkeits-Parcours.", 
+					stations: "Stationen: Climb in, Drahtseilakt, Tarzansprung, Teufelsschlucht, Surfbrett, Hangelbrücke, Kreuzgang per Seil, Schwingende Reifen, Netz der Spinne"}
+			}
+
+			// Toggle map info on click
+			toggleInfo.on('click', function() {
+				$(this).parent().toggleClass('min');
+				$(this).toggleClass('rotate');
+				event.preventDefault;
+			});
+
+			// Make nav link clickable and set an effect
+			navLink.each(function() {
+				$(this).on('click', function() {
+					var name = $(this).attr("data-name"),
+						ui = $('.display');
+
+					navLink.parent().removeClass('active');
+					$(this).parent().addClass('active');
+					$('.display').each(function() {
+						$(this).children('h1').html(parcours[name].title);
+						$(this).children('.sub-h1').html(parcours[name].dif);
+						$(this).children('p').html(parcours[name].desc + '<br>' + parcours[name].stations);
+					});
+				});
+				event.preventDefault;
+			});
+
+			// Start the animation!
+			$('.loc').removeClass('invis');
+
+			// Let users drag the map helper, add '.loc' to debug location positions -> dont forget to deactivate all css3 transitions and transition delays ;)
+			$('.infogr__map-helper').draggable();
+		});
+	</script>
+</body>
+</html>

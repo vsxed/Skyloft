@@ -1,0 +1,228 @@
+// Vars
+$base: 16;
+$delay: 150ms;
+
+// Mixins
+@mixin calc($arg, $a) {
+	#{$arg}: ($a/$base)+rem;
+}
+
+// Transition-mixin. Prefix-free coding's easier ;)
+@mixin prefix($method, $arg) {
+	#{$method}: ($arg);
+	-webkit-#{$method}: ($arg);
+	-moz-#{$method}: ($arg);
+}
+
+// Fonts
+// Novecento Wide Medium
+@font-face {
+	font-family: "Novecento";
+	src:url('../fonts/Novecentowide-Medium.otf') format("opentype");
+	font-weight: normal;
+}
+
+// CSS
+// Simple CSS, no reset.css needed
+
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	@include prefix(backface-visibility, hidden);
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	display: block;
+	font-size: $base+px;
+}
+
+.infogr {
+	width: 800px;
+	height: 600px;
+	background: url('../img/map.jpg') 0 0 no-repeat;
+	display: block;
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+
+.infogr__UI {
+	font-family: Helvetica, sans-serif;
+	position: relative;
+	top: 20px;
+	
+	ul.nav {
+		list-style-type: none;
+		padding: 0;
+		text-align: center;
+
+		li {
+			display: inline-block;
+			border-radius: 3px;
+			position: relative;
+			background: #313227;
+			border: 1px solid #171611;
+			box-shadow: 0 1px 0 0 rgba(255,255,255,0.5);
+			margin-right: 12px;
+			margin-left: -3px;
+			@include prefix(transition, all 350ms ease-in-out);
+
+			&:first-of-type {
+				margin-left: 0px;
+			}
+
+			&.active, &:hover, &:active {
+				background: #fff;
+				border: 1px solid #fff;
+				box-shadow: 0 1px 3px 0 rgba(0,0,0,0.3);
+			}
+
+			&.active:after {
+				content: '';
+				display: block;
+				width: 10px;
+				height: 10px;
+				position: absolute;
+				margin: 0 auto;
+				background: #fff;
+				box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.3);
+				@include prefix(transform, rotate(45deg));
+				left: 50%;
+				margin-left: -5px;
+				bottom: -5px;
+			}
+
+			a.nav-link {
+				text-decoration: none;
+				color: #596744;
+				font-family: 'Novecento';
+				@include calc(font-size, 11.6);
+				padding: 7px 18px;
+				display: block;
+			}
+		}
+	}
+
+	.display {
+		position: relative;
+		display: block;
+		color: #fff;
+		text-shadow: 0 3px 10px rgba(0,0,0,0.75);
+		@include calc(font-size, 14);
+		line-height: 1;
+		width: 740px;
+		margin: 0 auto;
+
+		h1 {
+			font-family: 'Novecento';
+			@include calc(font-size, 28);
+			@include calc(margin-bottom, 20);
+		}
+
+		p {
+			@include calc(margin-top, 25);
+			@include calc(line-height, 20)
+		}
+	}
+}
+
+.infogr__map-helper {
+	position: absolute;
+	width: 170px;
+	height: 290px;
+	bottom: 72px;
+	right: 20px;
+	background: #fff;
+	border-radius: 3px;
+	padding: 10px 15px;
+	box-shadow: 0 7px 8px 0 rgba(0,0,0,0.54);
+	overflow: hidden;
+	@include prefix(transition, height 500ms ease-in-out);
+
+	&.min {height: 40px;}
+
+	h3 {
+		font-family: 'Novecento';
+		font-size: 1rem;
+		color: #323232;
+		margin: 0;
+		display: inline-block;
+	}
+
+	.toggle-info {
+		display: inline-block;
+		text-decoration: none;
+		color: inherit;
+		position: absolute;
+		right: 15px;
+		@include prefix(transition, all 500ms ease-in-out);
+
+		&.rotate {@include prefix(transform, rotate(-180deg));}
+	}
+
+	img[alt=Legende] {margin-top: 18px;}
+}
+
+.infogr__main-locs .loc{
+	position: absolute;
+	width: 42px;
+	height: 60px;
+	background-image: url('../img/sprite.png');
+	background-repeat: no-repeat;
+	opacity: 1;
+	@include prefix(transform, translateY(0px));
+	@include prefix(transition, all 500ms ease-in-out);
+
+	&.invis {
+		opacity: 0;
+		@include prefix(transform, translateY(-100px));
+	}
+
+	&.bbq {
+		background-position: -83px 0;
+		left: 33px;
+		top: 440px;
+		@include prefix(transition-delay, $delay * 1)
+	}
+
+	&.sea {
+		background-position: -41px 0;
+		top: 448px;
+		left: 112px;
+		@include prefix(transition-delay, $delay * 2)
+	}
+
+	&.playgr {
+		background-position: -172px 0;
+		top: 437px;
+		left: 459px;
+		@include prefix(transition-delay, $delay * 3)
+	}
+
+	&.shop {
+		background-position: -217px 0;
+		left: 518px;
+		top: 435px;
+		width: 65px;
+		@include prefix(transition-delay, $delay * 4)
+	}
+
+	&.entry {
+		background-position: -127px 0;
+		top: 506px;
+		left: 463px;
+		@include prefix(transition-delay, $delay * 5)
+	}
+
+	&.parking {
+		background-position: 0 0;
+		left: 531px;
+		top: 505px;
+		@include prefix(transition-delay, $delay * 6)
+	}
+}
