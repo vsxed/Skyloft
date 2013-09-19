@@ -44,11 +44,18 @@ body {
 .infogr {
 	width: 800px;
 	height: 600px;
-	background: url('../img/map.jpg') 0 0 no-repeat;
+	// background: url('../img/map.jpg') 0 0 no-repeat;
 	display: block;
 	position: relative;
 	padding: 0;
 	margin: 0;
+	overflow: hidden;
+
+	img[usemap] {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 }
 
 .infogr__UI {
@@ -60,6 +67,7 @@ body {
 		list-style-type: none;
 		padding: 0;
 		text-align: center;
+		margin: 0;
 
 		li {
 			display: inline-block;
@@ -225,4 +233,8 @@ body {
 		top: 505px;
 		@include prefix(transition-delay, $delay * 6)
 	}
+}
+
+map[name="Skyloft-Map"] area {
+	background: red;
 }
