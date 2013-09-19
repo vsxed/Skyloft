@@ -34,7 +34,8 @@
 			<div class="loc invis parking"></div>
 		</section>
 		<map name="Skyloft-Map">
-			<area shape="poly" coords="320,378,322,384,402,352,397,347" href="http://www.koblenz.de/" alt="Koblenz" title="Koblenz">
+			<!-- coords definition: x1,y1,x2,y2,x3,y3,x4,y4 -->
+			<area shape="poly" coords="320,378,322,384,402,352,397,347" href="#" data-image="kletter1" data-position-top="172" data-position-left="310" data-arrow-position="left" title="Schlingergrad " alt="Sie sind bereit für das eigentliche Abenteuer. Es gilt, unser Drahtseil über die 20 Meter lange Schlucht in schwindelnder Höhe zu überwinden.">
 		</map>
 		<aside class="infogr__map-helper">
 			<h3>Legende</h3>
@@ -46,7 +47,8 @@
 		$(document).ready(function(){
 			// wating for your commands, sir
 			var toggleInfo 	= $('.toggle-info'),
-				navLink 	= $('.nav-link');
+				navLink 	= $('.nav-link'),
+				areaTarget	= $('area');
 
 			// create a multidimensional js object with all texts in it
 			var parcours = { 
@@ -99,6 +101,29 @@
 					});
 				});
 				event.preventDefault;
+			});
+
+			// Area on-click function, rage-mode
+			areaTarget.each(function() {
+				var top = $(this).attr('data-position-top'),
+					left = $(this).attr('data-position-left'),
+					title = $(this).attr('title'),
+					alt = $(this).attr('alt'),
+					arrowPos = $(this).attr('data-arrow-position');
+
+				$(this).on('click', function() {
+					$('.ms-tooltip').remove();
+					$(this).parent().after('<div class="ms-tooltip ' + arrowPos + '" style="top: ' + top + 'px; left: ' + left + 'px;"><div class="ms-tooltip__pseudo"></div><div class="ms-tooltip__image"></div><div class="ms-tooltip__text"><h4>' + title + '</h4><p>' + alt + '</p></div></div>');
+					// uncomment the next line only for debugging: drag the tooltip to get the exact position ;)
+					// $('.ms-tooltip').draggable(); 
+					event.stopPropagation(); //important
+				});
+				event.preventDefault;
+			});
+
+			// hide existing tooltips on click outside the element
+			$('html').on('click', function() {
+				$('.ms-tooltip').remove();
 			});
 
 			// Start the animation!

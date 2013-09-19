@@ -256,6 +256,83 @@ body {
 }
 
 /* line 238, ../sass/skyloft.scss */
-map[name="Skyloft-Map"] area {
-  background: red;
+.ms-tooltip {
+  width: 350px;
+  height: 170px;
+  background: #fff;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 0 9px 16px 0 rgba(0, 0, 0, 0.36);
+}
+/* line 247, ../sass/skyloft.scss */
+.ms-tooltip:after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: #fff;
+  box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  bottom: -10px;
+}
+/* line 259, ../sass/skyloft.scss */
+.ms-tooltip.left:after {
+  left: 37px;
+}
+/* line 263, ../sass/skyloft.scss */
+.ms-tooltip.center:after {
+  left: 50%;
+  margin-left: -20px;
+}
+/* line 268, ../sass/skyloft.scss */
+.ms-tooltip.right:after {
+  right: 37px;
+}
+/* line 273, ../sass/skyloft.scss */
+.ms-tooltip .ms-tooltip__pseudo {
+  background: url("../img/tooltip-shape-after.png") 0 0 no-repeat;
+  width: 129px;
+  height: 133px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: inline-block;
+}
+/* line 284, ../sass/skyloft.scss */
+.ms-tooltip .ms-tooltip__image {
+  mask-image: url("../img/tooltip-shape.png");
+  -webkit-mask-image: url("../img/tooltip-shape.png");
+  -moz-mask-image: url("../img/tooltip-shape.png");
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  -moz-mask-repeat: no-repeat;
+  background: url("../img/kletter1.jpg") 0 -210px no-repeat;
+  width: 119px;
+  height: 133px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  z-index: 5;
+}
+/* line 297, ../sass/skyloft.scss */
+.ms-tooltip .ms-tooltip__text {
+  font-family: Helvetica, sans-serif;
+  font-size: 0.875rem;
+  width: 190px;
+  height: 140px;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  color: #464646;
+}
+/* line 307, ../sass/skyloft.scss */
+.ms-tooltip .ms-tooltip__text h4 {
+  font-family: 'Novecento';
+  font-size: 0.9375rem;
+  margin: 0;
 }
