@@ -29,7 +29,6 @@ $delay: 150ms;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
-	@include prefix(backface-visibility, hidden);
 }
 
 body {
@@ -150,6 +149,7 @@ body {
 	padding: 10px 15px;
 	box-shadow: 0 7px 8px 0 rgba(0,0,0,0.54);
 	overflow: hidden;
+	@include prefix(backface-visibility, hidden);
 	@include prefix(transition, height 500ms ease-in-out);
 
 	&.min {height: 40px;}
@@ -242,6 +242,7 @@ body {
 	position: absolute;
 	border-radius: 10px;
 	// overflow: hidden;
+	@include prefix(backface-visibility, hidden);
 	box-shadow: 0 9px 16px 0 rgba(0,0,0,0.36);
 
 	&:after {

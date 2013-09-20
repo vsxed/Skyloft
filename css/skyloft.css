@@ -9,12 +9,9 @@
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
 }
 
-/* line 35, ../sass/skyloft.scss */
+/* line 34, ../sass/skyloft.scss */
 body {
   width: 100%;
   height: 100%;
@@ -24,7 +21,7 @@ body {
   font-size: 16px;
 }
 
-/* line 44, ../sass/skyloft.scss */
+/* line 43, ../sass/skyloft.scss */
 .infogr {
   width: 800px;
   height: 600px;
@@ -34,27 +31,27 @@ body {
   margin: 0;
   overflow: hidden;
 }
-/* line 54, ../sass/skyloft.scss */
+/* line 53, ../sass/skyloft.scss */
 .infogr img[usemap] {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-/* line 61, ../sass/skyloft.scss */
+/* line 60, ../sass/skyloft.scss */
 .infogr__UI {
   font-family: Helvetica, sans-serif;
   position: relative;
   top: 20px;
 }
-/* line 66, ../sass/skyloft.scss */
+/* line 65, ../sass/skyloft.scss */
 .infogr__UI ul.nav {
   list-style-type: none;
   padding: 0;
   text-align: center;
   margin: 0;
 }
-/* line 72, ../sass/skyloft.scss */
+/* line 71, ../sass/skyloft.scss */
 .infogr__UI ul.nav li {
   display: inline-block;
   border-radius: 3px;
@@ -68,17 +65,17 @@ body {
   -webkit-transition: all 350ms ease-in-out;
   -moz-transition: all 350ms ease-in-out;
 }
-/* line 83, ../sass/skyloft.scss */
+/* line 82, ../sass/skyloft.scss */
 .infogr__UI ul.nav li:first-of-type {
   margin-left: 0px;
 }
-/* line 87, ../sass/skyloft.scss */
+/* line 86, ../sass/skyloft.scss */
 .infogr__UI ul.nav li.active, .infogr__UI ul.nav li:hover, .infogr__UI ul.nav li:active {
   background: #fff;
   border: 1px solid #fff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
 }
-/* line 93, ../sass/skyloft.scss */
+/* line 92, ../sass/skyloft.scss */
 .infogr__UI ul.nav li.active:after {
   content: '';
   display: block;
@@ -95,7 +92,7 @@ body {
   margin-left: -5px;
   bottom: -5px;
 }
-/* line 108, ../sass/skyloft.scss */
+/* line 107, ../sass/skyloft.scss */
 .infogr__UI ul.nav li a.nav-link {
   text-decoration: none;
   color: #596744;
@@ -104,7 +101,7 @@ body {
   padding: 7px 18px;
   display: block;
 }
-/* line 119, ../sass/skyloft.scss */
+/* line 118, ../sass/skyloft.scss */
 .infogr__UI .display {
   position: relative;
   display: block;
@@ -115,19 +112,19 @@ body {
   width: 740px;
   margin: 0 auto;
 }
-/* line 129, ../sass/skyloft.scss */
+/* line 128, ../sass/skyloft.scss */
 .infogr__UI .display h1 {
   font-family: 'Novecento';
   font-size: 1.75rem;
   margin-bottom: 1.25rem;
 }
-/* line 135, ../sass/skyloft.scss */
+/* line 134, ../sass/skyloft.scss */
 .infogr__UI .display p {
   margin-top: 1.5625rem;
   line-height: 1.25rem;
 }
 
-/* line 142, ../sass/skyloft.scss */
+/* line 141, ../sass/skyloft.scss */
 .infogr__map-helper {
   position: absolute;
   width: 170px;
@@ -139,6 +136,9 @@ body {
   padding: 10px 15px;
   box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.54);
   overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   transition: height 500ms ease-in-out;
   -webkit-transition: height 500ms ease-in-out;
   -moz-transition: height 500ms ease-in-out;
@@ -262,9 +262,12 @@ body {
   background: #fff;
   position: absolute;
   border-radius: 10px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   box-shadow: 0 9px 16px 0 rgba(0, 0, 0, 0.36);
 }
-/* line 247, ../sass/skyloft.scss */
+/* line 248, ../sass/skyloft.scss */
 .ms-tooltip:after {
   content: '';
   display: block;
@@ -278,20 +281,20 @@ body {
   -moz-transform: rotate(45deg);
   bottom: -10px;
 }
-/* line 259, ../sass/skyloft.scss */
+/* line 260, ../sass/skyloft.scss */
 .ms-tooltip.left:after {
   left: 37px;
 }
-/* line 263, ../sass/skyloft.scss */
+/* line 264, ../sass/skyloft.scss */
 .ms-tooltip.center:after {
   left: 50%;
   margin-left: -20px;
 }
-/* line 268, ../sass/skyloft.scss */
+/* line 269, ../sass/skyloft.scss */
 .ms-tooltip.right:after {
   right: 37px;
 }
-/* line 273, ../sass/skyloft.scss */
+/* line 274, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__pseudo {
   background: url("../img/tooltip-shape-after.png") 0 0 no-repeat;
   width: 129px;
@@ -302,7 +305,7 @@ body {
   z-index: 3;
   display: inline-block;
 }
-/* line 284, ../sass/skyloft.scss */
+/* line 285, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__image {
   mask-image: url("../img/tooltip-shape.png");
   -webkit-mask-image: url("../img/tooltip-shape.png");
@@ -319,7 +322,7 @@ body {
   display: inline-block;
   z-index: 5;
 }
-/* line 297, ../sass/skyloft.scss */
+/* line 298, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__text {
   font-family: Helvetica, sans-serif;
   font-size: 0.875rem;
@@ -330,7 +333,7 @@ body {
   top: 15px;
   color: #464646;
 }
-/* line 307, ../sass/skyloft.scss */
+/* line 308, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__text h4 {
   font-family: 'Novecento';
   font-size: 0.9375rem;
