@@ -178,9 +178,9 @@
 			});
 
 			// Debugging function for our routes
-			// A click should hopefully cycle through our sprite image ;)
+			// A click should hopefully cycle through our sprite image
 			var i = 1;
-			$("[class*='weg-']").on('click', function() {
+			$("[class*='weg-']").on('dblclick', function() {
 				$(this).removeClass().addClass('map-highlight weg-' + i);
 				i++;
 				if (i == 27) {
