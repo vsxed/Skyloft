@@ -219,11 +219,41 @@ body {
 	}
 
 	&.shop {
-		background-position: -200px 0;
+		background-position: -200px -37px;
+		// background-position: -200px 0;
+		// width: 56px;
 		left: 523px;
+		z-index: 4;
 		top: 452px;
-		width: 56px;
 		@include prefix(transition-delay, $delay * 4);
+
+		&:before {
+			content:'';
+			display: block;
+			width: 35px;
+			height: 35px;
+			background-repeat: no-repeat;
+			background-image: url('../img/sprite.png');
+			background-position: -200px -37px;
+		}
+		
+		&:after {
+			content:'';
+			display: block;
+			width: 34px;
+			opacity: 0;
+			z-index: -3;
+			height: 15px;
+			background-image: url('../img/sprite.png');
+			background-repeat: no-repeat;
+			background-position: -202px -79px;
+			@include prefix(transform-origin, left center);
+			@include prefix(animation, wc 1s 2s 1 forwards);
+			@include prefix(transition, all 500ms ease-in-out);
+			position: absolute;
+			top: 10px;
+			left: 22px;
+		}
 	}
 
 	&.entry {
@@ -566,4 +596,13 @@ body {
 		left: 383px;
 		top: 480px;
 	}
+}
+
+@-webkit-keyframes wc {
+	0% { @include prefix(transform, rotate(90deg)); opacity: 0;}
+	55% { @include prefix(transform, rotate(0deg)); opacity: 1;}
+	60% { @include prefix(transform, rotate(-10deg)); opacity: 1;}
+	80% { @include prefix(transform, rotate(10deg)); opacity: 1;}
+	90% { @include prefix(transform, rotate(-5deg)); opacity: 1;}
+	100% { @include prefix(transform, rotate(0deg)); opacity: 1;}
 }
