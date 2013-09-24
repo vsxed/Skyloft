@@ -11,7 +11,7 @@
 <body>
 	<div class="infogr">
 		<img src="img/sprite-map-empty.png" class="map-sprite">
-		<div class="map-highlight"></div>
+		<!-- <div class="map-highlight"></div> -->
 		<img src="img/empty.png" alt="Skyloft" usemap="#Skyloft-Map">
 		<section class="infogr__UI">
 			<ul class="nav">
@@ -137,10 +137,17 @@
 					$(this).parent().after('<div class="ms-tooltip ' + arrowPos + '" style="top: ' + top + 'px; left: ' + left + 'px;"><div class="ms-tooltip__pseudo"></div><div class="ms-tooltip__image"></div><div class="ms-tooltip__text"><h4>' + title + '</h4><p>' + alt + '</p></div></div>');
 					// uncomment the next line only for debugging: drag the tooltip to get the exact position ;)
 					// $('.ms-tooltip').draggable(); 
+					$('.ms-tooltip').delay(250).queue(function() {
+						$(this).addClass('anim').deqeue();
+					});
 					event.stopPropagation(); //important
 				});
 				$(this).on('mouseout', function() {
-					$('.ms-tooltip').remove();
+
+					$('.ms-tooltip').removeClass('after-anim').addClass('after-anim');
+					setTimeout(function() {
+					  $('.ms-tooltip').remove();
+					}, 250);
 				});
 				event.preventDefault;
 			});

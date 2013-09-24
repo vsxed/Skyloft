@@ -145,6 +145,7 @@ body {
 
 .infogr__map-helper {
 	position: absolute;
+	display: none;
 	width: 170px;
 	height: 290px;
 	bottom: 72px;
@@ -246,8 +247,11 @@ body {
 	background: #fff;
 	position: absolute;
 	border-radius: 10px;
+	opacity: 0;
 	// overflow: hidden;
 	@include prefix(backface-visibility, hidden);
+	@include prefix(transform, translateY(20px));
+	@include prefix(transition, all 250ms ease-in-out);
 	box-shadow: 0 9px 16px 0 rgba(0,0,0,0.36);
 
 	&:after {
@@ -262,19 +266,19 @@ body {
 		bottom: -10px;
 	}
 
-	&.left:after {
-		left: 37px;
+	&.left:after {left: 37px;}
+	&.center:after {left: 50%; margin-left: -20px;}
+	&.right:after {right: 37px;}
+
+	&.anim {
+		@include prefix(transform, translateY(0));
+		opacity: 1;
 	}
 
-	&.center:after {
-		left: 50%;
-		margin-left: -20px;
+	&.after-anim {
+		opacity: 0;
+		@include prefix(transform, translateY(-20px));
 	}
-
-	&.right:after {
-		right: 37px;
-	}
-
 
 	.ms-tooltip__pseudo {
 		background: url('../img/tooltip-shape-after.png') 0 0 no-repeat;
@@ -329,8 +333,11 @@ body {
 }
 
 .map-highlight {
-	background: url('../img/sprite-map-full.jpg') 0 0 no-repeat;
+	background: url('../img/sprite-map-full.jpg') 82px 282px no-repeat;
 	position: absolute;
-	height: 30px;
-	width: 40px;
+	width: 450px;
+	height: 257px;
+	background-attachment: fixed;
+	top: 282px;
+	left: 82px;
 }

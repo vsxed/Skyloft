@@ -133,6 +133,7 @@ body {
 /* line 146, ../sass/skyloft.scss */
 .infogr__map-helper {
   position: absolute;
+  display: none;
   width: 170px;
   height: 290px;
   bottom: 72px;
@@ -149,11 +150,11 @@ body {
   -webkit-transition: height 500ms ease-in-out;
   -moz-transition: height 500ms ease-in-out;
 }
-/* line 160, ../sass/skyloft.scss */
+/* line 161, ../sass/skyloft.scss */
 .infogr__map-helper.min {
   height: 40px;
 }
-/* line 162, ../sass/skyloft.scss */
+/* line 163, ../sass/skyloft.scss */
 .infogr__map-helper h3 {
   font-family: 'Novecento';
   font-size: 1rem;
@@ -161,7 +162,7 @@ body {
   margin: 0;
   display: inline-block;
 }
-/* line 170, ../sass/skyloft.scss */
+/* line 171, ../sass/skyloft.scss */
 .infogr__map-helper .toggle-info {
   display: inline-block;
   text-decoration: none;
@@ -172,18 +173,18 @@ body {
   -webkit-transition: all 500ms ease-in-out;
   -moz-transition: all 500ms ease-in-out;
 }
-/* line 178, ../sass/skyloft.scss */
+/* line 179, ../sass/skyloft.scss */
 .infogr__map-helper .toggle-info.rotate {
   transform: rotate(-180deg);
   -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
 }
-/* line 181, ../sass/skyloft.scss */
+/* line 182, ../sass/skyloft.scss */
 .infogr__map-helper img[alt=Legende] {
   margin-top: 18px;
 }
 
-/* line 184, ../sass/skyloft.scss */
+/* line 185, ../sass/skyloft.scss */
 .infogr__main-locs .loc {
   position: absolute;
   width: 35px;
@@ -198,14 +199,14 @@ body {
   -webkit-transition: all 500ms ease-in-out;
   -moz-transition: all 500ms ease-in-out;
 }
-/* line 194, ../sass/skyloft.scss */
+/* line 195, ../sass/skyloft.scss */
 .infogr__main-locs .loc.invis {
   opacity: 0;
   transform: translateY(-100px);
   -webkit-transform: translateY(-100px);
   -moz-transform: translateY(-100px);
 }
-/* line 199, ../sass/skyloft.scss */
+/* line 200, ../sass/skyloft.scss */
 .infogr__main-locs .loc.bbq {
   background-position: -120px 0;
   left: 40px;
@@ -214,7 +215,7 @@ body {
   -webkit-transition-delay: 150ms;
   -moz-transition-delay: 150ms;
 }
-/* line 206, ../sass/skyloft.scss */
+/* line 207, ../sass/skyloft.scss */
 .infogr__main-locs .loc.sea {
   background-position: -40px 0;
   top: 442px;
@@ -223,7 +224,7 @@ body {
   -webkit-transition-delay: 300ms;
   -moz-transition-delay: 300ms;
 }
-/* line 213, ../sass/skyloft.scss */
+/* line 214, ../sass/skyloft.scss */
 .infogr__main-locs .loc.playgr {
   background-position: 0 0;
   top: 454px;
@@ -232,7 +233,7 @@ body {
   -webkit-transition-delay: 450ms;
   -moz-transition-delay: 450ms;
 }
-/* line 220, ../sass/skyloft.scss */
+/* line 221, ../sass/skyloft.scss */
 .infogr__main-locs .loc.shop {
   background-position: -200px 0;
   left: 523px;
@@ -242,7 +243,7 @@ body {
   -webkit-transition-delay: 600ms;
   -moz-transition-delay: 600ms;
 }
-/* line 228, ../sass/skyloft.scss */
+/* line 229, ../sass/skyloft.scss */
 .infogr__main-locs .loc.entry {
   background-position: -80px 0;
   top: 510px;
@@ -251,7 +252,7 @@ body {
   -webkit-transition-delay: 750ms;
   -moz-transition-delay: 750ms;
 }
-/* line 235, ../sass/skyloft.scss */
+/* line 236, ../sass/skyloft.scss */
 .infogr__main-locs .loc.parking {
   background-position: -160px 0;
   left: 554px;
@@ -261,19 +262,26 @@ body {
   -moz-transition-delay: 900ms;
 }
 
-/* line 243, ../sass/skyloft.scss */
+/* line 244, ../sass/skyloft.scss */
 .ms-tooltip {
   width: 350px;
   height: 170px;
   background: #fff;
   position: absolute;
   border-radius: 10px;
+  opacity: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
+  transform: translateY(20px);
+  -webkit-transform: translateY(20px);
+  -moz-transform: translateY(20px);
+  transition: all 250ms ease-in-out;
+  -webkit-transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
   box-shadow: 0 9px 16px 0 rgba(0, 0, 0, 0.36);
 }
-/* line 253, ../sass/skyloft.scss */
+/* line 257, ../sass/skyloft.scss */
 .ms-tooltip:after {
   content: '';
   display: block;
@@ -287,20 +295,34 @@ body {
   -moz-transform: rotate(45deg);
   bottom: -10px;
 }
-/* line 265, ../sass/skyloft.scss */
+/* line 269, ../sass/skyloft.scss */
 .ms-tooltip.left:after {
   left: 37px;
 }
-/* line 269, ../sass/skyloft.scss */
+/* line 270, ../sass/skyloft.scss */
 .ms-tooltip.center:after {
   left: 50%;
   margin-left: -20px;
 }
-/* line 274, ../sass/skyloft.scss */
+/* line 271, ../sass/skyloft.scss */
 .ms-tooltip.right:after {
   right: 37px;
 }
-/* line 279, ../sass/skyloft.scss */
+/* line 273, ../sass/skyloft.scss */
+.ms-tooltip.anim {
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  opacity: 1;
+}
+/* line 278, ../sass/skyloft.scss */
+.ms-tooltip.after-anim {
+  opacity: 0;
+  transform: translateY(-20px);
+  -webkit-transform: translateY(-20px);
+  -moz-transform: translateY(-20px);
+}
+/* line 283, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__pseudo {
   background: url("../img/tooltip-shape-after.png") 0 0 no-repeat;
   width: 129px;
@@ -311,7 +333,7 @@ body {
   z-index: 3;
   display: inline-block;
 }
-/* line 290, ../sass/skyloft.scss */
+/* line 294, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__image {
   mask-image: url("../img/tooltip-shape.png");
   -webkit-mask-image: url("../img/tooltip-shape.png");
@@ -328,7 +350,7 @@ body {
   display: inline-block;
   z-index: 5;
 }
-/* line 303, ../sass/skyloft.scss */
+/* line 307, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__text {
   font-family: Helvetica, sans-serif;
   font-size: 0.75rem;
@@ -339,14 +361,14 @@ body {
   top: 15px;
   color: #464646;
 }
-/* line 313, ../sass/skyloft.scss */
+/* line 317, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__text h4 {
   font-family: 'Novecento';
   font-size: 0.9375rem;
   margin: 0;
 }
 
-/* line 321, ../sass/skyloft.scss */
+/* line 325, ../sass/skyloft.scss */
 .map-sprite {
   width: 450px;
   height: 257px;
@@ -355,10 +377,13 @@ body {
   left: 82px !important;
 }
 
-/* line 331, ../sass/skyloft.scss */
+/* line 335, ../sass/skyloft.scss */
 .map-highlight {
-  background: url("../img/sprite-map-full.jpg") 0 0 no-repeat;
+  background: url("../img/sprite-map-full.jpg") 82px 282px no-repeat;
   position: absolute;
-  height: 30px;
-  width: 40px;
+  width: 450px;
+  height: 257px;
+  background-attachment: fixed;
+  top: 282px;
+  left: 82px;
 }
