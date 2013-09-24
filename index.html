@@ -44,7 +44,7 @@
 			<!-- Schlingergrad -->
 			<area shape="poly" coords="397,343,402,357,316,389,315,375" href="#" data-image="kletter1" data-position-top="172" data-position-left="182" data-arrow-position="center" title="Schlingergrad " alt="Sie sind bereit für das eigentliche Abenteuer. Es gilt, unser Drahtseil über die 20 Meter lange Schlucht in schwindelnder Höhe zu überwinden.">
 			<!-- Okerbrücke -->
-			<area shape="poly" coords="297,391,315,393,276,461,265,454,295,391" href="#" alt="Ihr Start in Ihr persönliches Abenteuer führt Sie über die 15 Meter lange Brücke. Sie setzen auf der schmalen, schwankenden Brücke einen Schritt vor den anderen und Ihr Blick ist starr nach vorne gerichtet." title="Okerbrücke" data-image="kletter1" data-position-top="219" data-position-left="117" data-arrow-position="center">
+			<area shape="poly" coords="297,391,315,393,276,461,265,454,295,391" href="#" alt="Ihr Start in Ihr persönliches Abenteuer führt Sie über die 15 Meter lange Brücke. Sie setzen auf der schmalen, schwankenden Brücke einen Schritt vor den anderen und Ihr Blick ist starr nach vorne gerichtet." title="Okerbrücke" data-image="kletter1" data-position-top="230" data-position-left="127" data-arrow-position="center">
 			<!-- Schlaufengasse -->
 			<area shape="poly" coords="282,472,287,460,371,475,371,489,281,470" href="#" alt="Die Schlaufengasse ist ein richtiger Genuss, schnell koordiniert der Körper die Bewegungen. Sie fühlen sich rundum wohl." title="Schlaufengasse" data-image="kletter1" data-position-top="275" data-position-left="161" data-arrow-position="center">
 			<!-- Back to earth -->
@@ -104,8 +104,27 @@
 				event.preventDefault;
 			});
 
+			// cache the current map highlight
+			var cache = $('.map-sprite').attr('src');
+
 			// Make nav link clickable and set an effect
 			navLink.each(function() {
+				
+				// show parcours on navlink hover
+				$(this).on('mouseenter', function() {
+					var name = $(this).attr("data-name");
+
+					$('.map-sprite').attr('src', 'img/sprite-map-' + parcours[name].name + '.jpg');
+					return cache;
+				});
+
+				// revert the map to the active/selected one
+				$(this).on('mouseout', function() {
+					$('.map-sprite').attr('src', cache);
+					return cache;
+				});
+
+				// make them also selectable
 				$(this).on('click', function() {
 					var name = $(this).attr("data-name"),
 						ui = $('.display');
@@ -117,10 +136,11 @@
 						$(this).children('.sub-h1').html(parcours[name].dif);
 						$(this).children('p').html(parcours[name].desc + '<br>' + parcours[name].stations);
 					});
-					console.log(parcours[name].name);
-					// $('.map-sprite').removeClass('zirkel pfad tour horst circus active');
 					$('.map-sprite').attr('src', 'img/sprite-map-' + parcours[name].name + '.jpg');
+					cache = $('.map-sprite').attr('src');
+					return cache;
 				});
+
 				event.preventDefault;
 			});
 
@@ -136,7 +156,7 @@
 					$('.ms-tooltip').remove();
 					$(this).parent().before('<div class="ms-tooltip ' + arrowPos + '" style="top: ' + top + 'px; left: ' + left + 'px;"><div class="ms-tooltip__pseudo"></div><div class="ms-tooltip__image"></div><div class="ms-tooltip__text"><h4>' + title + '</h4><p>' + alt + '</p></div></div>');
 					// uncomment the next line only for debugging: drag the tooltip to get the exact position ;)
-					// $('.ms-tooltip').draggable(); 
+					$('.ms-tooltip').draggable(); 
 					$('.ms-tooltip').delay(250).queue(function() {
 						$(this).addClass('anim');
 					});
