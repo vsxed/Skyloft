@@ -11,7 +11,7 @@
 <body>
 	<div class="infogr">
 		<img src="img/sprite-map-empty.png" class="map-sprite">
-		<div class="map-highlight weg-1"></div>
+		<div class="map-highlight"></div>
 		<img src="img/empty.png" alt="Skyloft" usemap="#Skyloft-Map">
 		<section class="infogr__UI">
 			<ul class="nav">
@@ -38,17 +38,17 @@
 		<map name="Skyloft-Map">
 			<!-- coords definition: x1,y1,x2,y2,x3,y3,x4,y4 -->
 			<!-- Kletterstart -->
-			<area shape="poly" coords="472,392,474,411,516,408,516,392,496,392,472,392" href="#" alt="Sie steigen über eine 14 Meter lange Holzleiter zur Basis-Plattform in die Baumkronen auf." title="Kletterstart" data-image="kletter1" data-position-top="208" data-position-left="200" data-arrow-position="right">
+			<area shape="poly" coords="472,392,474,411,516,408,516,392,496,392,472,392" href="#" alt="Sie steigen über eine 14 Meter lange Holzleiter zur Basis-Plattform in die Baumkronen auf." title="Kletterstart" data-image="kletter1" data-position-top="208" data-position-left="200" data-arrow-position="right" data-route-index="9">
 			<!-- Tanzende Balken -->
-			<area shape="poly" coords="447,401,461,390,419,349,408,357" href="#" alt="Die Balken unter Ihnen schwingen. Nach dem ersten Schritt stellt sich Ihr Körper darauf ein. Sie werden mutiger und spüren, was in Ihnen steckt. " title="Tanzende Balken" data-image="kletter1" data-position-top="172" data-position-left="137" data-arrow-position="right">
+			<area shape="poly" coords="447,401,461,390,419,349,408,357" href="#" alt="Die Balken unter Ihnen schwingen. Nach dem ersten Schritt stellt sich Ihr Körper darauf ein. Sie werden mutiger und spüren, was in Ihnen steckt. " title="Tanzende Balken" data-image="kletter1" data-position-top="172" data-position-left="137" data-arrow-position="right" data-route-index="8">
 			<!-- Schlingergrad -->
-			<area shape="poly" coords="397,343,402,357,316,389,315,375" href="#" data-image="kletter1" data-position-top="172" data-position-left="182" data-arrow-position="center" title="Schlingergrad " alt="Sie sind bereit für das eigentliche Abenteuer. Es gilt, unser Drahtseil über die 20 Meter lange Schlucht in schwindelnder Höhe zu überwinden.">
+			<area shape="poly" coords="397,343,402,357,316,389,315,375" href="#" data-image="kletter1" data-position-top="172" data-position-left="182" data-arrow-position="center" title="Schlingergrad " alt="Sie sind bereit für das eigentliche Abenteuer. Es gilt, unser Drahtseil über die 20 Meter lange Schlucht in schwindelnder Höhe zu überwinden." data-route-index="7">
 			<!-- Okerbrücke -->
-			<area shape="poly" coords="297,391,315,393,276,461,265,454,295,391" href="#" alt="Ihr Start in Ihr persönliches Abenteuer führt Sie über die 15 Meter lange Brücke. Sie setzen auf der schmalen, schwankenden Brücke einen Schritt vor den anderen und Ihr Blick ist starr nach vorne gerichtet." title="Okerbrücke" data-image="kletter1" data-position-top="230" data-position-left="127" data-arrow-position="center">
+			<area shape="poly" coords="297,391,315,393,276,461,265,454,295,391" href="#" alt="Ihr Start in Ihr persönliches Abenteuer führt Sie über die 15 Meter lange Brücke. Sie setzen auf der schmalen, schwankenden Brücke einen Schritt vor den anderen und Ihr Blick ist starr nach vorne gerichtet." title="Okerbrücke" data-image="kletter1" data-position-top="230" data-position-left="127" data-arrow-position="center" data-route-index="14">
 			<!-- Schlaufengasse -->
-			<area shape="poly" coords="282,472,287,460,371,475,371,489,281,470" href="#" alt="Die Schlaufengasse ist ein richtiger Genuss, schnell koordiniert der Körper die Bewegungen. Sie fühlen sich rundum wohl." title="Schlaufengasse" data-image="kletter1" data-position-top="275" data-position-left="161" data-arrow-position="center">
+			<area shape="poly" coords="282,472,287,460,371,475,371,489,281,470" href="#" alt="Die Schlaufengasse ist ein richtiger Genuss, schnell koordiniert der Körper die Bewegungen. Sie fühlen sich rundum wohl." title="Schlaufengasse" data-image="kletter1" data-position-top="275" data-position-left="161" data-arrow-position="center" data-route-index="25">
 			<!-- Back to earth -->
-			<area shape="poly" coords="393,481,378,491,457,530,464,518,392,480" href="#" alt="130 Meter weit fliegen Sie auf unserer Seilbahn durch eine Waldschneise zurück zur Basis. Ein großartiger Abschluss für alle Kletterer." title="Back to earth" data-image="kletter1" data-position-top="306" data-position-left="131" data-arrow-position="right">
+			<area shape="poly" coords="393,481,378,491,457,530,464,518,392,480" href="#" alt="130 Meter weit fliegen Sie auf unserer Seilbahn durch eine Waldschneise zurück zur Basis. Ein großartiger Abschluss für alle Kletterer." title="Back to earth" data-image="kletter1" data-position-top="306" data-position-left="131" data-arrow-position="right" data-route-index="26">
 		</map>
 		<aside class="infogr__map-helper">
 			<h3>Legende</h3>
@@ -118,7 +118,7 @@
 					return cache;
 				});
 
-				// revert the map to the active/selected one
+				// revert the map to the current/selected one
 				$(this).on('mouseout', function() {
 					$('.map-sprite').attr('src', cache);
 					return cache;
@@ -150,6 +150,7 @@
 					left = $(this).attr('data-position-left'),
 					title = $(this).attr('title'),
 					alt = $(this).attr('alt'),
+					num = $(this).attr('data-route-index'),
 					arrowPos = $(this).attr('data-arrow-position');
 
 				$(this).on('mouseenter', function() {
@@ -160,10 +161,15 @@
 					$('.ms-tooltip').delay(250).queue(function() {
 						$(this).addClass('anim');
 					});
+					$('.map-highlight').queue(function() {
+						$(this).removeClass('fade-out weg-1 weg-2 weg-3 weg-4 weg-5 weg-6 weg-7 weg-8 weg-9 weg-10 weg-11 weg-12 weg-13 weg-14 weg-15 weg-16 weg-17 weg-18 weg-19 weg-20 weg-21 weg-22 weg-23 weg-24 weg-25 weg-26').addClass('weg-' + num).dequeue();
+					});
 					event.stopPropagation(); //important
 				});
 				$(this).on('mouseout', function() {
-
+					$('.map-highlight').addClass('fade-out').delay(500).queue(function(){
+						$(this).removeClass('fade-out weg-1 weg-2 weg-3 weg-4 weg-5 weg-6 weg-7 weg-8 weg-9 weg-10 weg-11 weg-12 weg-13 weg-14 weg-15 weg-16 weg-17 weg-18 weg-19 weg-20 weg-21 weg-22 weg-23 weg-24 weg-25 weg-26').dequeue();
+					});
 					$('.ms-tooltip').removeClass('after-anim').addClass('after-anim').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function() {
 						// remove DOM element when the css transition ends
 						$(this).remove(); 
@@ -179,21 +185,21 @@
 
 			// Debugging function for our routes
 			// A click should hopefully cycle through our sprite image
-			var i = 1;
-			$("[class*='weg-']").on('dblclick', function() {
-				$(this).removeClass().addClass('map-highlight weg-' + i);
-				i++;
-				if (i == 27) {
-					i = 1;
-				}
-				return i;
-			});
+			// var i = 1;
+			// $("[class*='weg-']").on('dblclick', function() {
+			// 	$(this).removeClass().addClass('map-highlight weg-' + i);
+			// 	i++;
+			// 	if (i == 27) {
+			// 		i = 1;
+			// 	}
+			// 	return i;
+			// });
 
 			// Start the animation!
 			$('.loc').removeClass('invis');
 
-			// Let users drag the map helper, add '.loc' to debug location positions -> dont forget to deactivate all css3 transitions and transition delays ;)
-			$('.infogr__map-helper, .map-highlight').draggable();
+			// Let users drag the map helper, add '.loc' or any other class to debug location positions -> dont forget to deactivate all css3 transitions and transition delays ;)
+			$('.infogr__map-helper').draggable();
 		});
 	</script>
 </body>

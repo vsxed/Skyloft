@@ -248,7 +248,7 @@ body {
 	position: absolute;
 	border-radius: 10px;
 	opacity: 0;
-	z-index: 0;
+	z-index: 2;
 	// overflow: hidden;
 	@include prefix(backface-visibility, hidden);
 	@include prefix(transform, translateY(-20px));
@@ -326,11 +326,9 @@ body {
 .map-sprite {
 	width: 450px;
 	height: 257px;
-	// opacity: 0;
 	position: absolute !important;
 	top: 282px !important;
 	left: 82px !important;
-	// display: none;
 }
 
 // Initial empty highlight
@@ -342,7 +340,24 @@ body {
 	display: block;
 	top: 120px;
 	left: 80px;
-	z-index: 5;
+	opacity: 0;
+	@include prefix(transition, opacity 500ms ease-in-out);
+
+	&.weg-1, &.weg-2, &.weg-3,
+	&.weg-4, &.weg-5, &.weg-6,
+	&.weg-7, &.weg-8, &.weg-9,
+	&.weg-10, &.weg-11, &.weg-12,
+	&.weg-13, &.weg-14, &.weg-15,
+	&.weg-16, &.weg-17, &.weg-18,
+	&.weg-19, &.weg-20, &.weg-21,
+	&.weg-22, &.weg-23, &.weg-24,
+	&.weg-25, &.weg-26 {
+		opacity: 1;
+	}
+
+	&.fade-out {
+		opacity: 0 !important;
+	}
 
 	&.weg-1 {
 		background-position: 0 0;
