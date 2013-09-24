@@ -248,9 +248,10 @@ body {
 	position: absolute;
 	border-radius: 10px;
 	opacity: 0;
+	z-index: 0;
 	// overflow: hidden;
 	@include prefix(backface-visibility, hidden);
-	@include prefix(transform, translateY(20px));
+	@include prefix(transform, translateY(-20px));
 	@include prefix(transition, all 250ms ease-in-out);
 	box-shadow: 0 9px 16px 0 rgba(0,0,0,0.36);
 
@@ -271,7 +272,7 @@ body {
 	&.right:after {right: 37px;}
 
 	&.anim {
-		@include prefix(transform, translateY(0));
+		@include prefix(transform, translateY(0px));
 		opacity: 1;
 	}
 

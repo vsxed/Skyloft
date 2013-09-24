@@ -38,17 +38,17 @@
 		<map name="Skyloft-Map">
 			<!-- coords definition: x1,y1,x2,y2,x3,y3,x4,y4 -->
 			<!-- Kletterstart -->
-			<area shape="poly" coords="473,400,473,406,518,403,518,396" href="#" alt="Sie steigen über eine 14 Meter lange Holzleiter zur Basis-Plattform in die Baumkronen auf." title="Kletterstart" data-image="kletter1" data-position-top="208" data-position-left="200" data-arrow-position="right">
+			<area shape="poly" coords="472,392,474,411,516,408,516,392,496,392,472,392" href="#" alt="Sie steigen über eine 14 Meter lange Holzleiter zur Basis-Plattform in die Baumkronen auf." title="Kletterstart" data-image="kletter1" data-position-top="208" data-position-left="200" data-arrow-position="right">
 			<!-- Tanzende Balken -->
-			<area shape="poly" coords="456,394,451,399,410,354,416,349" href="#" alt="Die Balken unter Ihnen schwingen. Nach dem ersten Schritt stellt sich Ihr Körper darauf ein. Sie werden mutiger und spüren, was in Ihnen steckt. " title="Tanzende Balken" data-image="kletter1" data-position-top="172" data-position-left="137" data-arrow-position="right">
+			<area shape="poly" coords="447,401,461,390,419,349,408,357" href="#" alt="Die Balken unter Ihnen schwingen. Nach dem ersten Schritt stellt sich Ihr Körper darauf ein. Sie werden mutiger und spüren, was in Ihnen steckt. " title="Tanzende Balken" data-image="kletter1" data-position-top="172" data-position-left="137" data-arrow-position="right">
 			<!-- Schlingergrad -->
-			<area shape="poly" coords="320,378,322,384,402,352,397,347" href="#" data-image="kletter1" data-position-top="172" data-position-left="182" data-arrow-position="center" title="Schlingergrad " alt="Sie sind bereit für das eigentliche Abenteuer. Es gilt, unser Drahtseil über die 20 Meter lange Schlucht in schwindelnder Höhe zu überwinden.">
+			<area shape="poly" coords="397,343,402,357,316,389,315,375" href="#" data-image="kletter1" data-position-top="172" data-position-left="182" data-arrow-position="center" title="Schlingergrad " alt="Sie sind bereit für das eigentliche Abenteuer. Es gilt, unser Drahtseil über die 20 Meter lange Schlucht in schwindelnder Höhe zu überwinden.">
 			<!-- Okerbrücke -->
-			<area shape="poly" coords="302,391,308,393,279,453,273,450" href="#" alt="Ihr Start in Ihr persönliches Abenteuer führt Sie über die 15 Meter lange Brücke. Sie setzen auf der schmalen, schwankenden Brücke einen Schritt vor den anderen und Ihr Blick ist starr nach vorne gerichtet." title="Okerbrücke" data-image="kletter1" data-position-top="219" data-position-left="117" data-arrow-position="center">
+			<area shape="poly" coords="297,391,315,393,276,461,265,454,295,391" href="#" alt="Ihr Start in Ihr persönliches Abenteuer führt Sie über die 15 Meter lange Brücke. Sie setzen auf der schmalen, schwankenden Brücke einen Schritt vor den anderen und Ihr Blick ist starr nach vorne gerichtet." title="Okerbrücke" data-image="kletter1" data-position-top="219" data-position-left="117" data-arrow-position="center">
 			<!-- Schlaufengasse -->
-			<area shape="poly" coords="284,462,282,468,371,485,372,477" href="#" alt="Die Schlaufengasse ist ein richtiger Genuss, schnell koordiniert der Körper die Bewegungen. Sie fühlen sich rundum wohl." title="Schlaufengasse" data-image="kletter1" data-position-top="275" data-position-left="161" data-arrow-position="center">
+			<area shape="poly" coords="282,472,287,460,371,475,371,489,281,470" href="#" alt="Die Schlaufengasse ist ein richtiger Genuss, schnell koordiniert der Körper die Bewegungen. Sie fühlen sich rundum wohl." title="Schlaufengasse" data-image="kletter1" data-position-top="275" data-position-left="161" data-arrow-position="center">
 			<!-- Back to earth -->
-			<area shape="poly" coords="389,483,461,521,458,527,385,488" href="#" alt="130 Meter weit fliegen Sie auf unserer Seilbahn durch eine Waldschneise zurück zur Basis. Ein großartiger Abschluss für alle Kletterer." title="Back to earth" data-image="kletter1" data-position-top="306" data-position-left="131" data-arrow-position="right">
+			<area shape="poly" coords="393,481,378,491,457,530,464,518,392,480" href="#" alt="130 Meter weit fliegen Sie auf unserer Seilbahn durch eine Waldschneise zurück zur Basis. Ein großartiger Abschluss für alle Kletterer." title="Back to earth" data-image="kletter1" data-position-top="306" data-position-left="131" data-arrow-position="right">
 		</map>
 		<aside class="infogr__map-helper">
 			<h3>Legende</h3>
@@ -134,20 +134,20 @@
 
 				$(this).on('mouseenter', function() {
 					$('.ms-tooltip').remove();
-					$(this).parent().after('<div class="ms-tooltip ' + arrowPos + '" style="top: ' + top + 'px; left: ' + left + 'px;"><div class="ms-tooltip__pseudo"></div><div class="ms-tooltip__image"></div><div class="ms-tooltip__text"><h4>' + title + '</h4><p>' + alt + '</p></div></div>');
+					$(this).parent().before('<div class="ms-tooltip ' + arrowPos + '" style="top: ' + top + 'px; left: ' + left + 'px;"><div class="ms-tooltip__pseudo"></div><div class="ms-tooltip__image"></div><div class="ms-tooltip__text"><h4>' + title + '</h4><p>' + alt + '</p></div></div>');
 					// uncomment the next line only for debugging: drag the tooltip to get the exact position ;)
 					// $('.ms-tooltip').draggable(); 
 					$('.ms-tooltip').delay(250).queue(function() {
-						$(this).addClass('anim').deqeue();
+						$(this).addClass('anim');
 					});
 					event.stopPropagation(); //important
 				});
 				$(this).on('mouseout', function() {
 
-					$('.ms-tooltip').removeClass('after-anim').addClass('after-anim');
-					setTimeout(function() {
-					  $('.ms-tooltip').remove();
-					}, 250);
+					$('.ms-tooltip').removeClass('after-anim').addClass('after-anim').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function() {
+						// remove DOM element when the css transition ends
+						$(this).remove(); 
+					});
 				});
 				event.preventDefault;
 			});

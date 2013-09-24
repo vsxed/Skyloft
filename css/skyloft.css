@@ -270,18 +270,19 @@ body {
   position: absolute;
   border-radius: 10px;
   opacity: 0;
+  z-index: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
-  transform: translateY(20px);
-  -webkit-transform: translateY(20px);
-  -moz-transform: translateY(20px);
+  transform: translateY(-20px);
+  -webkit-transform: translateY(-20px);
+  -moz-transform: translateY(-20px);
   transition: all 250ms ease-in-out;
   -webkit-transition: all 250ms ease-in-out;
   -moz-transition: all 250ms ease-in-out;
   box-shadow: 0 9px 16px 0 rgba(0, 0, 0, 0.36);
 }
-/* line 257, ../sass/skyloft.scss */
+/* line 258, ../sass/skyloft.scss */
 .ms-tooltip:after {
   content: '';
   display: block;
@@ -295,34 +296,34 @@ body {
   -moz-transform: rotate(45deg);
   bottom: -10px;
 }
-/* line 269, ../sass/skyloft.scss */
+/* line 270, ../sass/skyloft.scss */
 .ms-tooltip.left:after {
   left: 37px;
 }
-/* line 270, ../sass/skyloft.scss */
+/* line 271, ../sass/skyloft.scss */
 .ms-tooltip.center:after {
   left: 50%;
   margin-left: -20px;
 }
-/* line 271, ../sass/skyloft.scss */
+/* line 272, ../sass/skyloft.scss */
 .ms-tooltip.right:after {
   right: 37px;
 }
-/* line 273, ../sass/skyloft.scss */
+/* line 274, ../sass/skyloft.scss */
 .ms-tooltip.anim {
-  transform: translateY(0);
-  -webkit-transform: translateY(0);
-  -moz-transform: translateY(0);
+  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
   opacity: 1;
 }
-/* line 278, ../sass/skyloft.scss */
+/* line 279, ../sass/skyloft.scss */
 .ms-tooltip.after-anim {
   opacity: 0;
   transform: translateY(-20px);
   -webkit-transform: translateY(-20px);
   -moz-transform: translateY(-20px);
 }
-/* line 283, ../sass/skyloft.scss */
+/* line 284, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__pseudo {
   background: url("../img/tooltip-shape-after.png") 0 0 no-repeat;
   width: 129px;
@@ -333,7 +334,7 @@ body {
   z-index: 3;
   display: inline-block;
 }
-/* line 294, ../sass/skyloft.scss */
+/* line 295, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__image {
   mask-image: url("../img/tooltip-shape.png");
   -webkit-mask-image: url("../img/tooltip-shape.png");
@@ -350,7 +351,7 @@ body {
   display: inline-block;
   z-index: 5;
 }
-/* line 307, ../sass/skyloft.scss */
+/* line 308, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__text {
   font-family: Helvetica, sans-serif;
   font-size: 0.75rem;
@@ -361,14 +362,14 @@ body {
   top: 15px;
   color: #464646;
 }
-/* line 317, ../sass/skyloft.scss */
+/* line 318, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__text h4 {
   font-family: 'Novecento';
   font-size: 0.9375rem;
   margin: 0;
 }
 
-/* line 325, ../sass/skyloft.scss */
+/* line 326, ../sass/skyloft.scss */
 .map-sprite {
   width: 450px;
   height: 257px;
@@ -377,7 +378,7 @@ body {
   left: 82px !important;
 }
 
-/* line 335, ../sass/skyloft.scss */
+/* line 336, ../sass/skyloft.scss */
 .map-highlight {
   background: url("../img/sprite-map-full.jpg") 82px 282px no-repeat;
   position: absolute;
