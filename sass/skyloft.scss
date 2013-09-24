@@ -178,8 +178,8 @@ body {
 
 .infogr__main-locs .loc{
 	position: absolute;
-	width: 42px;
-	height: 60px;
+	width: 35px;
+	height: 35px;
 	background-image: url('../img/sprite.png');
 	background-repeat: no-repeat;
 	opacity: 1;
@@ -192,46 +192,46 @@ body {
 	}
 
 	&.bbq {
-		background-position: -83px 0;
-		left: 33px;
-		top: 440px;
-		@include prefix(transition-delay, $delay * 1)
+		background-position: -120px 0;
+		left: 40px;
+		top: 474px;
+		@include prefix(transition-delay, $delay * 1);
 	}
 
 	&.sea {
-		background-position: -41px 0;
-		top: 448px;
-		left: 112px;
-		@include prefix(transition-delay, $delay * 2)
+		background-position: -40px 0;
+		top: 442px;
+		left: 131px;
+		@include prefix(transition-delay, $delay * 2);
 	}
 
 	&.playgr {
-		background-position: -172px 0;
-		top: 437px;
-		left: 459px;
-		@include prefix(transition-delay, $delay * 3)
+		background-position: 0 0;
+		top: 454px;
+		left: 464px;
+		@include prefix(transition-delay, $delay * 3);
 	}
 
 	&.shop {
-		background-position: -217px 0;
-		left: 518px;
-		top: 435px;
-		width: 65px;
-		@include prefix(transition-delay, $delay * 4)
+		background-position: -200px 0;
+		left: 523px;
+		top: 452px;
+		width: 56px;
+		@include prefix(transition-delay, $delay * 4);
 	}
 
 	&.entry {
-		background-position: -127px 0;
-		top: 506px;
-		left: 463px;
-		@include prefix(transition-delay, $delay * 5)
+		background-position: -80px 0;
+		top: 510px;
+		left: 494px;
+		@include prefix(transition-delay, $delay * 5);
 	}
 
 	&.parking {
-		background-position: 0 0;
-		left: 531px;
-		top: 505px;
-		@include prefix(transition-delay, $delay * 6)
+		background-position: -160px 0;
+		left: 554px;
+		top: 510px;
+		@include prefix(transition-delay, $delay * 6);
 	}
 }
 
@@ -297,7 +297,7 @@ body {
 
 	.ms-tooltip__text {
 		font-family: Helvetica, sans-serif;
-		@include calc(font-size, 14);
+		@include calc(font-size, 12);
 		width: 190px;
 		height: 140px;
 		position: absolute;

@@ -180,8 +180,8 @@ body {
 /* line 179, ../sass/skyloft.scss */
 .infogr__main-locs .loc {
   position: absolute;
-  width: 42px;
-  height: 60px;
+  width: 35px;
+  height: 35px;
   background-image: url("../img/sprite.png");
   background-repeat: no-repeat;
   opacity: 1;
@@ -201,55 +201,55 @@ body {
 }
 /* line 194, ../sass/skyloft.scss */
 .infogr__main-locs .loc.bbq {
-  background-position: -83px 0;
-  left: 33px;
-  top: 440px;
+  background-position: -120px 0;
+  left: 40px;
+  top: 474px;
   transition-delay: 150ms;
   -webkit-transition-delay: 150ms;
   -moz-transition-delay: 150ms;
 }
 /* line 201, ../sass/skyloft.scss */
 .infogr__main-locs .loc.sea {
-  background-position: -41px 0;
-  top: 448px;
-  left: 112px;
+  background-position: -40px 0;
+  top: 442px;
+  left: 131px;
   transition-delay: 300ms;
   -webkit-transition-delay: 300ms;
   -moz-transition-delay: 300ms;
 }
 /* line 208, ../sass/skyloft.scss */
 .infogr__main-locs .loc.playgr {
-  background-position: -172px 0;
-  top: 437px;
-  left: 459px;
+  background-position: 0 0;
+  top: 454px;
+  left: 464px;
   transition-delay: 450ms;
   -webkit-transition-delay: 450ms;
   -moz-transition-delay: 450ms;
 }
 /* line 215, ../sass/skyloft.scss */
 .infogr__main-locs .loc.shop {
-  background-position: -217px 0;
-  left: 518px;
-  top: 435px;
-  width: 65px;
+  background-position: -200px 0;
+  left: 523px;
+  top: 452px;
+  width: 56px;
   transition-delay: 600ms;
   -webkit-transition-delay: 600ms;
   -moz-transition-delay: 600ms;
 }
 /* line 223, ../sass/skyloft.scss */
 .infogr__main-locs .loc.entry {
-  background-position: -127px 0;
-  top: 506px;
-  left: 463px;
+  background-position: -80px 0;
+  top: 510px;
+  left: 494px;
   transition-delay: 750ms;
   -webkit-transition-delay: 750ms;
   -moz-transition-delay: 750ms;
 }
 /* line 230, ../sass/skyloft.scss */
 .infogr__main-locs .loc.parking {
-  background-position: 0 0;
-  left: 531px;
-  top: 505px;
+  background-position: -160px 0;
+  left: 554px;
+  top: 510px;
   transition-delay: 900ms;
   -webkit-transition-delay: 900ms;
   -moz-transition-delay: 900ms;
@@ -325,7 +325,7 @@ body {
 /* line 298, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__text {
   font-family: Helvetica, sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   width: 190px;
   height: 140px;
   position: absolute;
