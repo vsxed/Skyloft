@@ -25,6 +25,7 @@ body {
 .infogr {
   width: 800px;
   height: 600px;
+  background: url("../img/map.jpg") 0 0 no-repeat;
   display: block;
   position: relative;
   padding: 0;
@@ -32,7 +33,7 @@ body {
   overflow: hidden;
 }
 /* line 53, ../sass/skyloft.scss */
-.infogr img[usemap] {
+.infogr img[alt=Skyloft] {
   position: absolute;
   top: 0;
   left: 0;
@@ -338,4 +339,13 @@ body {
   font-family: 'Novecento';
   font-size: 0.9375rem;
   margin: 0;
+}
+
+/* line 316, ../sass/skyloft.scss */
+.map-sprite {
+  width: 450px;
+  height: 257px;
+  position: absolute !important;
+  top: 282px !important;
+  left: 82px !important;
 }

@@ -10,7 +10,8 @@
 </head>
 <body>
 	<div class="infogr">
-		<img src="img/map.jpg" alt="Skyloft" usemap="#Skyloft-Map">
+		<img src="img/sprite-map-empty.png" class="map-sprite">
+		<img src="img/empty.png" alt="Skyloft" usemap="#Skyloft-Map">
 		<section class="infogr__UI">
 			<ul class="nav">
 				<li><a href="#" data-name="zirkel" class="nav-link">Magischer Zirkel</a></li>
@@ -64,26 +65,31 @@
 			// create a multidimensional js object with all texts in it
 			var parcours = { 
 				zirkel: {
+					name: "zirkel",
 					title: "Magischer Zirkel", 
 					dif: "für Einsteiger, Familien und Kinder.", 
 					desc: "Hier können Sie Ihre ersten Hochseil-Erfahrungen sammeln.", 
 					stations: "Stationen: Kletterstart, Tanzende Balken, Schlingergrad, Okerbrücke, Schlaufengasse, Back to earth"},
 				pfad: {
+					name: "pfad",
 					title: "Silberner Pfad", 
 					dif: "für mutige Einsteiger und durchschnittlich Sportliche.", 
 					desc: "Erklimmen Sie die Baumkronen und fühlen Sie sich wie Robin Hood.", 
 					stations: "Stationen: Kletterstart, Tanzende Balken, Schlingergrad, Himmelsstürmer, Baum-Kaskaden, Teufelsschlucht, Wildwasserbrücke, Schwebebalken, Schlaufengasse, Back to earth"},
 				tour: {
+					name: "tour",
 					title: "Mammut-Tour", 
 					dif: "für Fortgeschrittene.", 
 					desc: "Beim Erklimmen der hohen Wipfel sind Kraft und Ausdauer gefragt.", 
 					stations: "Stationen: Kletterwand, Himmelsstürmer, Baum-Kaskaden, Hexensprung, Netzbrücke, Wildwasserbrücke, Schwebebalken, Okerbrücke, Kreuzgang per Seil, Schwingende Reifen, Netz der Spinne"},
 				horst: {
+					name: "horst",
 					title: "Adlerhorst", 
 					dif: "Dies schaffen nur Proficlimber.", 
 					desc: "Die sehr schwer zu erkletternden Elemente in 15 Meter Höhe sind eine echte Herausforderung.", 
 					stations: "Stationen: Kletterstart, Tanzende Balken, Schlingergrad, Himmelsstürmer, Adlerhorst, Übergang, Milanswipfel, Teufelsschlucht, Wildwasserbrücke, Schwebebalken, Jump down"},
 				circus: {
+					name: "circus",
 					title: "Flying Circus", 
 					dif: "Für Profis.", 
 					desc: "Wer den Nervenkitzel liebt, begibt sich auf das Drahtseil und auf unseren ultimativen Geschicklichkeits-Parcours.", 
@@ -110,6 +116,9 @@
 						$(this).children('.sub-h1').html(parcours[name].dif);
 						$(this).children('p').html(parcours[name].desc + '<br>' + parcours[name].stations);
 					});
+					console.log(parcours[name].name);
+					// $('.map-sprite').removeClass('zirkel pfad tour horst circus active');
+					$('.map-sprite').attr('src', 'img/sprite-map-' + parcours[name].name + '.jpg');
 				});
 				event.preventDefault;
 			});
@@ -122,12 +131,15 @@
 					alt = $(this).attr('alt'),
 					arrowPos = $(this).attr('data-arrow-position');
 
-				$(this).on('click', function() {
+				$(this).on('mouseenter', function() {
 					$('.ms-tooltip').remove();
 					$(this).parent().after('<div class="ms-tooltip ' + arrowPos + '" style="top: ' + top + 'px; left: ' + left + 'px;"><div class="ms-tooltip__pseudo"></div><div class="ms-tooltip__image"></div><div class="ms-tooltip__text"><h4>' + title + '</h4><p>' + alt + '</p></div></div>');
 					// uncomment the next line only for debugging: drag the tooltip to get the exact position ;)
 					// $('.ms-tooltip').draggable(); 
 					event.stopPropagation(); //important
+				});
+				$(this).on('mouseout', function() {
+					$('.ms-tooltip').remove();
 				});
 				event.preventDefault;
 			});

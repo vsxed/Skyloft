@@ -43,14 +43,14 @@ body {
 .infogr {
 	width: 800px;
 	height: 600px;
-	// background: url('../img/map.jpg') 0 0 no-repeat;
+	background: url('../img/map.jpg') 0 0 no-repeat;
 	display: block;
 	position: relative;
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
 
-	img[usemap] {
+	img[alt=Skyloft] {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -311,4 +311,14 @@ body {
 			margin: 0;
 		}
 	}
+}
+
+.map-sprite {
+	width: 450px;
+	height: 257px;
+	// opacity: 0;
+	position: absolute !important;
+	top: 282px !important;
+	left: 82px !important;
+	// display: none;
 }
