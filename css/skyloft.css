@@ -378,13 +378,170 @@ body {
   left: 82px !important;
 }
 
-/* line 336, ../sass/skyloft.scss */
+/* line 337, ../sass/skyloft.scss */
 .map-highlight {
-  background: url("../img/sprite-map-full.jpg") 82px 282px no-repeat;
+  background: url("../img/sprite-highlight.png") -108px 0 no-repeat;
   position: absolute;
-  width: 450px;
-  height: 257px;
-  background-attachment: fixed;
-  top: 282px;
-  left: 82px;
+  width: 10px;
+  height: 10px;
+  display: block;
+  top: 120px;
+  left: 80px;
+  z-index: 5;
+}
+/* line 347, ../sass/skyloft.scss */
+.map-highlight.weg-1 {
+  background-position: 0 0;
+  width: 60px;
+  height: 62px;
+}
+/* line 353, ../sass/skyloft.scss */
+.map-highlight.weg-2 {
+  background-position: 0px -62px;
+  width: 51px;
+  height: 17px;
+}
+/* line 359, ../sass/skyloft.scss */
+.map-highlight.weg-3 {
+  background-position: 0px -79px;
+  width: 13px;
+  height: 62px;
+}
+/* line 365, ../sass/skyloft.scss */
+.map-highlight.weg-4 {
+  background-position: 0px -661px;
+  width: 101px;
+  height: 12px;
+}
+/* line 371, ../sass/skyloft.scss */
+.map-highlight.weg-5 {
+  background-position: 0px -574px;
+  width: 46px;
+  height: 20px;
+}
+/* line 377, ../sass/skyloft.scss */
+.map-highlight.weg-6 {
+  background-position: -36px -173px;
+  width: 20px;
+  height: 24px;
+}
+/* line 383, ../sass/skyloft.scss */
+.map-highlight.weg-7 {
+  background-position: 0px -622px;
+  width: 84px;
+  height: 39px;
+}
+/* line 389, ../sass/skyloft.scss */
+.map-highlight.weg-8 {
+  background-position: -47px -201px;
+  width: 48px;
+  height: 54px;
+}
+/* line 395, ../sass/skyloft.scss */
+.map-highlight.weg-9 {
+  background-position: -59px -547px;
+  width: 51px;
+  height: 15px;
+}
+/* line 401, ../sass/skyloft.scss */
+.map-highlight.weg-10 {
+  background-position: 0px -152px;
+  width: 36px;
+  height: 49px;
+}
+/* line 407, ../sass/skyloft.scss */
+.map-highlight.weg-11 {
+  background-position: 0px -255px;
+  width: 72px;
+  height: 79px;
+}
+/* line 413, ../sass/skyloft.scss */
+.map-highlight.weg-12 {
+  background-position: 0px -440px;
+  width: 110px;
+  height: 51px;
+}
+/* line 419, ../sass/skyloft.scss */
+.map-highlight.weg-13 {
+  background-position: -63px -334px;
+  width: 40px;
+  height: 34px;
+}
+/* line 425, ../sass/skyloft.scss */
+.map-highlight.weg-14 {
+  background-position: -29px -79px;
+  width: 42px;
+  height: 67px;
+}
+/* line 431, ../sass/skyloft.scss */
+.map-highlight.weg-15 {
+  background-position: 0px -594px;
+  width: 69px;
+  height: 28px;
+}
+/* line 437, ../sass/skyloft.scss */
+.map-highlight.weg-16 {
+  background-position: -46px -574px;
+  width: 53px;
+  height: 13px;
+}
+/* line 443, ../sass/skyloft.scss */
+.map-highlight.weg-17 {
+  background-position: -60px 0px;
+  width: 39px;
+  height: 47px;
+}
+/* line 449, ../sass/skyloft.scss */
+.map-highlight.weg-18 {
+  background-position: 0px -517px;
+  width: 96px;
+  height: 30px;
+}
+/* line 455, ../sass/skyloft.scss */
+.map-highlight.weg-19 {
+  background-position: 0px -547px;
+  width: 59px;
+  height: 27px;
+}
+/* line 461, ../sass/skyloft.scss */
+.map-highlight.weg-20 {
+  background-position: 0px -673px;
+  width: 118px;
+  height: 22px;
+}
+/* line 467, ../sass/skyloft.scss */
+.map-highlight.weg-21 {
+  background-position: -36px -152px;
+  width: 27px;
+  height: 21px;
+}
+/* line 473, ../sass/skyloft.scss */
+.map-highlight.weg-22 {
+  background-position: -13px -79px;
+  width: 16px;
+  height: 73px;
+}
+/* line 479, ../sass/skyloft.scss */
+.map-highlight.weg-23 {
+  background-position: 0px -334px;
+  width: 63px;
+  height: 56px;
+}
+/* line 485, ../sass/skyloft.scss */
+.map-highlight.weg-24 {
+  background-position: 0px -201px;
+  width: 47px;
+  height: 39px;
+}
+/* line 491, ../sass/skyloft.scss */
+.map-highlight.weg-25 {
+  background-position: 0px -491px;
+  width: 95px;
+  height: 26px;
+}
+/* line 497, ../sass/skyloft.scss */
+.map-highlight.weg-26 {
+  background-position: 0px -390px;
+  width: 83px;
+  height: 50px;
 }

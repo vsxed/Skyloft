@@ -11,7 +11,7 @@
 <body>
 	<div class="infogr">
 		<img src="img/sprite-map-empty.png" class="map-sprite">
-		<!-- <div class="map-highlight"></div> -->
+		<div class="map-highlight weg-1"></div>
 		<img src="img/empty.png" alt="Skyloft" usemap="#Skyloft-Map">
 		<section class="infogr__UI">
 			<ul class="nav">
@@ -109,7 +109,7 @@
 
 			// Make nav link clickable and set an effect
 			navLink.each(function() {
-				
+
 				// show parcours on navlink hover
 				$(this).on('mouseenter', function() {
 					var name = $(this).attr("data-name");
@@ -156,7 +156,7 @@
 					$('.ms-tooltip').remove();
 					$(this).parent().before('<div class="ms-tooltip ' + arrowPos + '" style="top: ' + top + 'px; left: ' + left + 'px;"><div class="ms-tooltip__pseudo"></div><div class="ms-tooltip__image"></div><div class="ms-tooltip__text"><h4>' + title + '</h4><p>' + alt + '</p></div></div>');
 					// uncomment the next line only for debugging: drag the tooltip to get the exact position ;)
-					$('.ms-tooltip').draggable(); 
+					// $('.ms-tooltip').draggable(); 
 					$('.ms-tooltip').delay(250).queue(function() {
 						$(this).addClass('anim');
 					});
@@ -172,16 +172,28 @@
 				event.preventDefault;
 			});
 
-			// hide existing tooltips on click outside the element
+			// hide existing tooltips by clicking anywhere
 			$('html').on('click', function() {
 				$('.ms-tooltip').remove();
+			});
+
+			// Debugging function for our routes
+			// A click should hopefully cycle through our sprite image ;)
+			var i = 1;
+			$("[class*='weg-']").on('click', function() {
+				$(this).removeClass().addClass('map-highlight weg-' + i);
+				i++;
+				if (i == 27) {
+					i = 1;
+				}
+				return i;
 			});
 
 			// Start the animation!
 			$('.loc').removeClass('invis');
 
 			// Let users drag the map helper, add '.loc' to debug location positions -> dont forget to deactivate all css3 transitions and transition delays ;)
-			$('.infogr__map-helper').draggable();
+			$('.infogr__map-helper, .map-highlight').draggable();
 		});
 	</script>
 </body>
