@@ -145,9 +145,10 @@ body {
 
 .infogr__map-helper {
 	position: absolute;
-	display: none;
+	// display: none;
 	width: 170px;
 	height: 290px;
+	z-index: 10;
 	bottom: 72px;
 	right: 20px;
 	background: #fff;
@@ -180,6 +181,64 @@ body {
 	}
 
 	img[alt=Legende] {margin-top: 18px;}
+
+	.info-hover {
+		background-image: url(../img/sprite-info-hover.png);
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		display: block;
+		height: 0px;
+		width: 134px;
+		background-color: red;
+		position: absolute;
+		top: 49px;
+		left: 15px;
+
+		&.s1 {
+			height: 23px;
+			background-position: 0 0;
+		}
+
+		&.s2 {
+			height: 28px;
+			background-position: 0 -23px;
+			top: 72px;
+		}
+
+		&.s3 {
+			height: 29px;
+			background-position: 0 -51px;
+			top: 100px;
+		}
+
+		&.s4 {
+			height: 27px;
+			background-position: 0 -80px;
+			top: 129px;
+		}
+
+		&.s5 {
+			height: 29px;
+			background-position: 0 -107px;
+			top: 156px;
+		}
+
+		&.s6 {
+			height: 28px;
+			background-position: 0 -136px;
+			top: 185px;
+		}
+
+		&.s7 {
+			height: 29px;
+			background-position: 0 -164px;
+		}
+
+		&.s8 {
+			height: 32px;
+			background-position: 0 -193px;
+		}
+	}
 }
 
 .infogr__main-locs .loc{
@@ -228,7 +287,7 @@ body {
 		@include prefix(transition-delay, $delay * 4);
 
 		&:before {
-			content:'';
+			content: '';
 			display: block;
 			width: 35px;
 			height: 35px;
@@ -237,8 +296,8 @@ body {
 			background-position: -200px -37px;
 		}
 		
-		&:after {
-			content:'';
+		.wc {
+			// content: '';
 			display: block;
 			width: 34px;
 			opacity: 0;
@@ -273,7 +332,7 @@ body {
 
 .ms-tooltip {
 	width: 350px;
-	height: 170px;
+	min-height: 140px;
 	background: #fff;
 	position: absolute;
 	border-radius: 10px;
@@ -325,12 +384,14 @@ body {
 	.ms-tooltip__image {
 		@include prefix(mask-image, url('../img/tooltip-shape.png'));
 		@include prefix(mask-repeat, no-repeat);
-		background: url('../img/kletter1.jpg') 0 -210px no-repeat;
+		background-image: url(../img/img-kletterstart.jpg);
+		background-position: -20px -20px;
+		background-repeat: no-repeat;
 		width: 119px;
 		height: 133px;
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: -1px;
+		left: -1px;
 		display: inline-block;
 		z-index: 5;
 	}
@@ -339,16 +400,28 @@ body {
 		font-family: Helvetica, sans-serif;
 		@include calc(font-size, 12);
 		width: 190px;
-		height: 140px;
-		position: absolute;
-		right: 20px;
+		// height: 140px;
+		position: relative;
+		// right: 20px;
+		left: 145px;
 		top: 15px;
 		color: #464646;
+
+		&:after {
+			content: '';
+			display: block;
+			height: 20px;
+			width: 20px;
+		}
 
 		h4 {
 			font-family: 'Novecento';
 			@include calc(font-size, 15);
 			margin: 0;
+		}
+
+		p {
+			line-height: 1.45;
 		}
 	}
 }
@@ -600,7 +673,6 @@ body {
 
 @-webkit-keyframes wc {
 	0% { @include prefix(transform, rotate(90deg)); opacity: 0;}
-	55% { @include prefix(transform, rotate(0deg)); opacity: 1;}
 	60% { @include prefix(transform, rotate(-10deg)); opacity: 1;}
 	80% { @include prefix(transform, rotate(10deg)); opacity: 1;}
 	90% { @include prefix(transform, rotate(-5deg)); opacity: 1;}
