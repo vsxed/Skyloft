@@ -123,7 +123,7 @@
 			toggleInfo.on('click', function() {
 				$(this).parent().toggleClass('min');
 				$(this).toggleClass('rotate');
-				event.preventDefault;
+				// event.preventDefault;
 			});
 
 			// cache the current map highlight
@@ -162,7 +162,7 @@
 					return cache;
 				});
 
-				event.preventDefault;
+				// event.preventDefault;
 			});
 
 			// hover function to hightlight a section in our info container
@@ -220,7 +220,7 @@
 						$(this).removeClass('fade-out weg-1 weg-2 weg-3 weg-4 weg-5 weg-6 weg-7 weg-8 weg-9 weg-10 weg-11 weg-12 weg-13 weg-14 weg-15 weg-16 weg-17 weg-18 weg-19 weg-20 weg-21 weg-22 weg-23 weg-24 weg-25 weg-26').addClass('weg-' + num).dequeue();
 					});
 					// console.log(img);
-					event.stopPropagation(); //important
+					// event.stopPropagation(); //important
 				});
 				$(this).on('mouseout', function() {
 					$('.map-highlight').addClass('fade-out').delay(500).queue(function(){
@@ -231,7 +231,7 @@
 						$(this).remove(); 
 					});
 				});
-				event.preventDefault;
+				// event.preventDefault;
 			});
 
 			// hide existing tooltips by clicking anywhere

@@ -670,7 +670,7 @@ body {
   top: 480px;
 }
 
-@-webkit-keyframes wc {
+@keyframes wc {
   /* line 630, ../sass/skyloft.scss */
   0% {
     transform: rotate(90deg);
@@ -704,6 +704,90 @@ body {
   }
 
   /* line 634, ../sass/skyloft.scss */
+  100% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes wc {
+  /* line 638, ../sass/skyloft.scss */
+  0% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  /* line 639, ../sass/skyloft.scss */
+  60% {
+    transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    opacity: 1;
+  }
+
+  /* line 640, ../sass/skyloft.scss */
+  80% {
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    opacity: 1;
+  }
+
+  /* line 641, ../sass/skyloft.scss */
+  90% {
+    transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    opacity: 1;
+  }
+
+  /* line 642, ../sass/skyloft.scss */
+  100% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes wc {
+  /* line 646, ../sass/skyloft.scss */
+  0% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  /* line 647, ../sass/skyloft.scss */
+  60% {
+    transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    opacity: 1;
+  }
+
+  /* line 648, ../sass/skyloft.scss */
+  80% {
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    opacity: 1;
+  }
+
+  /* line 649, ../sass/skyloft.scss */
+  90% {
+    transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    opacity: 1;
+  }
+
+  /* line 650, ../sass/skyloft.scss */
   100% {
     transform: rotate(0deg);
     -webkit-transform: rotate(0deg);

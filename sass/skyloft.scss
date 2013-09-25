@@ -626,7 +626,23 @@ body {
 	}
 }
 
+@keyframes wc {
+	0% { @include prefix(transform, rotate(90deg)); opacity: 0;}
+	60% { @include prefix(transform, rotate(-10deg)); opacity: 1;}
+	80% { @include prefix(transform, rotate(10deg)); opacity: 1;}
+	90% { @include prefix(transform, rotate(-5deg)); opacity: 1;}
+	100% { @include prefix(transform, rotate(0deg)); opacity: 1;}
+}
+
 @-webkit-keyframes wc {
+	0% { @include prefix(transform, rotate(90deg)); opacity: 0;}
+	60% { @include prefix(transform, rotate(-10deg)); opacity: 1;}
+	80% { @include prefix(transform, rotate(10deg)); opacity: 1;}
+	90% { @include prefix(transform, rotate(-5deg)); opacity: 1;}
+	100% { @include prefix(transform, rotate(0deg)); opacity: 1;}
+}
+
+@-moz-keyframes wc {
 	0% { @include prefix(transform, rotate(90deg)); opacity: 0;}
 	60% { @include prefix(transform, rotate(-10deg)); opacity: 1;}
 	80% { @include prefix(transform, rotate(10deg)); opacity: 1;}
