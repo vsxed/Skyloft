@@ -28,14 +28,14 @@
 			</div>
 		</section>
 		<section class="infogr__main-locs">
-			<div class="loc invis bbq" data-info-pos="s1"></div>
-			<div class="loc invis sea" data-info-pos="s2"></div>
-			<div class="loc invis playgr" data-info-pos="s3"></div>
-			<div class="loc invis shop" data-info-pos="s4">
+			<div class="loc invis bbq" data-info-pos="-250"></div>
+			<div class="loc invis sea" data-info-pos="-225"></div>
+			<div class="loc invis playgr" data-info-pos="-198"></div>
+			<div class="loc invis shop" data-info-pos="-170">
 				<div class="wc"></div>
 			</div>
-			<div class="loc invis entry" data-info-pos="s5"></div>
-			<div class="loc invis parking" data-info-pos="s6"></div>
+			<div class="loc invis entry" data-info-pos="-140"></div>
+			<div class="loc invis parking" data-info-pos="-115"></div>
 		</section>
 		<map name="Skyloft-Map">
 			<!-- coords definition: x1,y1,x2,y2,x3,y3,x4,y4 -->
@@ -50,13 +50,28 @@
 			<!-- Schlaufengasse -->
 			<area shape="poly" coords="282,472,287,460,371,475,371,489,281,470" href="#" alt="Die Schlaufengasse ist ein richtiger Genuss, schnell koordiniert der Körper die Bewegungen. Sie fühlen sich rundum wohl." title="Schlaufengasse" data-image="img-schlaufengasse" data-position-top="303" data-position-left="161" data-arrow-position="center" data-route-index="25">
 			<!-- Back to earth -->
-			<area shape="poly" coords="393,481,378,491,457,530,464,518,392,480" href="#" alt="130 Meter weit fliegen Sie auf unserer Seilbahn durch eine Waldschneise zurück zur Basis. Ein großartiger Abschluss für alle Kletterer." title="Back to earth" data-image="img-back_to_earth" data-position-top="336" data-position-left="121" data-arrow-position="right" data-route-index="26">
+			<area shape="poly" coords="393,481,378,491,457,530,464,518,392,480" href="#" alt="130 Meter weit fliegen Sie auf unserer Seilbahn durch eine Waldschneise zurück zur Basis. Ein großartiger Abschluss für alle Kletterer." title="Back to earth" data-image="img-back_to_earth" data-position-top="336" data-position-left="121" data-arrow-position="right" data-route-index="26">	
+			<area shape="rect" alt="Andere Plattform" title="Andere Plattform" coords="394,334,421,359" href="#" data-platform="normal" />
+			<area shape="rect" alt="Andere Plattform" title="Andere Plattform" coords="380,390,407,419" href="#" data-platform="normal" />
+			<area shape="rect" alt="Andere Plattform" title="Andere Plattform" coords="393,433,412,452" href="#" data-platform="normal" />
+			<area shape="rect" alt="Andere Plattform" title="Andere Plattform" coords="370,471,390,492" href="#" data-platform="normal" />
+			<area shape="rect" alt="Andere Plattform" title="Andere Plattform" coords="195,509,215,530" href="#" data-platform="normal" />
+			<area shape="rect" alt="Andere Plattform" title="Andere Plattform" coords="192,430,208,451" href="#" data-platform="normal" />
+			<area shape="rect" alt="Andere Plattform" title="Andere Plattform" coords="91,408,110,429" href="#" data-platform="normal" />
+			<area shape="rect" alt="Andere Plattform" title="Andere Plattform" coords="129,357,149,373" href="#" data-platform="normal" />
+			<area shape="rect" alt="Andere Plattform" title="Andere Plattform" coords="180,295,200,313" href="#" data-platform="normal" />
+			<area shape="rect" alt="Andere Plattform" title="Andere Plattform" coords="242,293,259,310" href="#" data-platform="normal" />
+			<area shape="rect" alt="Andere Plattform" title="Andere Plattform" coords="241,357,259,375" href="#" data-platform="normal" />
+			<area shape="rect" alt="Andere Plattform" title="Andere Plattform" coords="250,405,269,423" href="#" data-platform="normal" />
+			<area shape="rect" alt="Große Plattform" title="Große Plattform" coords="296,368,321,392" href="#" data-platform="main" />
+			<area shape="rect" alt="Große Plattform" title="Große Plattform" coords="448,392,473,415" href="#" data-platform="main" />
+			<area shape="rect" alt="Große Plattform" title="Große Plattform" coords="260,449,284,472" href="#" data-platform="main" />
 		</map>
 		<aside class="infogr__map-helper">
 			<h3>Legende</h3>
 			<a class="toggle-info" href="#">&#9662;</a>
 			<img src="img/info.png" alt="Legende">
-			<div class="info-hover"></div>
+			<div class="info-layer"></div>
 		</aside>
 	</div>
 	<script>
@@ -64,8 +79,11 @@
 			// wating for your commands, sir
 			var toggleInfo 	= $('.toggle-info'),
 				navLink 	= $('.nav-link'),
-				areaTarget	= $('area'),
-				infoPos 	= $('.loc');
+				// Select all area elements with an "data-route-index"
+				areaTarget 	= $("area[data-route-index]"),
+				infoPos 	= $('.loc'),
+				norPlat		= $('area[data-platform=normal]'),
+				mainPlat	= $('area[data-platform=main]');
 
 			// create a multidimensional js object with all texts in it
 			var parcours = { 
@@ -111,9 +129,8 @@
 			// cache the current map highlight
 			var cache = $('.map-sprite').attr('src');
 
-			// Make nav link clickable and set an effect
+			// Make nav link clickable and fire an effect
 			navLink.each(function() {
-
 				// show parcours on navlink hover
 				$(this).on('mouseenter', function() {
 					var name = $(this).attr("data-name");
@@ -152,15 +169,29 @@
 
 			infoPos.each(function() {
 				var position = $(this).attr('data-info-pos'),
-					infolight = $('.info-hover');
-
+					layer = $('.info-layer');
 				$(this).on('mouseenter', function() {
-					// console.log(position);
-					infolight.addClass(position);
+					layer.css({'top': position + 'px', 'opacity': 1});
+				}).on('mouseout', function() {
+					layer.css({'opacity': 0});
 				});
+			});
 
-				$(this).on('mouseout', function() {
-					infolight.removeClass(position);
+			norPlat.each(function() {
+				var layer = $('.info-layer');
+				$(this).on('mouseenter', function() {
+					layer.css({'top': '-60px', 'opacity': 1});
+				}).on('mouseout', function() {
+					layer.css({'opacity': 0});
+				});
+			});
+
+			mainPlat.each(function() {
+				var layer = $('.info-layer');
+				$(this).on('mouseenter', function() {
+					layer.css({'top': '-85px', 'opacity': 1});
+				}).on('mouseout', function() {
+					layer.css({'opacity': 0});
 				});
 			});
 
@@ -212,7 +243,7 @@
 			$('.loc').removeClass('invis');
 
 			// Let users drag the map helper, add '.loc' or any other class to debug location positions -> dont forget to deactivate all css3 transitions and transition delays ;)
-			$('.infogr__map-helper, .info-hover').draggable();
+			$('.infogr__map-helper').draggable();
 		});
 	</script>
 </body>

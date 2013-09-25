@@ -145,7 +145,6 @@ body {
 
 .infogr__map-helper {
 	position: absolute;
-	// display: none;
 	width: 170px;
 	height: 290px;
 	z-index: 10;
@@ -166,6 +165,8 @@ body {
 		font-size: 1rem;
 		color: #323232;
 		margin: 0;
+		position: relative;
+		z-index: 20;
 		display: inline-block;
 	}
 
@@ -173,6 +174,7 @@ body {
 		display: inline-block;
 		text-decoration: none;
 		color: inherit;
+		z-index: 20;
 		position: absolute;
 		right: 15px;
 		@include prefix(transition, all 500ms ease-in-out);
@@ -182,62 +184,15 @@ body {
 
 	img[alt=Legende] {margin-top: 18px;}
 
-	.info-hover {
-		background-image: url(../img/sprite-info-hover.png);
-		background-repeat: no-repeat;
-		background-position: 0 0;
+	.info-layer {
+		height: 616px;
+		width: 240px;
 		display: block;
-		height: 0px;
-		width: 134px;
-		background-color: red;
 		position: absolute;
-		top: 49px;
-		left: 15px;
-
-		&.s1 {
-			height: 23px;
-			background-position: 0 0;
-		}
-
-		&.s2 {
-			height: 28px;
-			background-position: 0 -23px;
-			top: 72px;
-		}
-
-		&.s3 {
-			height: 29px;
-			background-position: 0 -51px;
-			top: 100px;
-		}
-
-		&.s4 {
-			height: 27px;
-			background-position: 0 -80px;
-			top: 129px;
-		}
-
-		&.s5 {
-			height: 29px;
-			background-position: 0 -107px;
-			top: 156px;
-		}
-
-		&.s6 {
-			height: 28px;
-			background-position: 0 -136px;
-			top: 185px;
-		}
-
-		&.s7 {
-			height: 29px;
-			background-position: 0 -164px;
-		}
-
-		&.s8 {
-			height: 32px;
-			background-position: 0 -193px;
-		}
+		left: 0;
+		opacity: 0;
+		background: url(../img/info-layer.png) 0 0 no-repeat;
+		@include prefix(transition, opacity 500ms ease-in-out);
 	}
 }
 
@@ -410,7 +365,7 @@ body {
 		&:after {
 			content: '';
 			display: block;
-			height: 20px;
+			height: 25px;
 			width: 20px;
 		}
 
