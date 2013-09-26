@@ -385,17 +385,11 @@ body {
 }
 /* line 339, ../sass/skyloft.scss */
 .ms-tooltip .ms-tooltip__image {
-  mask-image: url("../img/tooltip-shape.png");
-  -webkit-mask-image: url("../img/tooltip-shape.png");
-  -moz-mask-image: url("../img/tooltip-shape.png");
-  mask-repeat: no-repeat;
-  -webkit-mask-repeat: no-repeat;
-  -moz-mask-repeat: no-repeat;
-  background-image: url(../img/img-kletterstart.jpg);
-  background-position: -20px -20px;
+  background-image: url(../img/img-kletterstart.png);
+  background-position: 0 0;
   background-repeat: no-repeat;
   width: 119px;
-  height: 133px;
+  height: 122px;
   position: absolute;
   top: -1px;
   left: -1px;

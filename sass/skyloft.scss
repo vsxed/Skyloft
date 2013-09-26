@@ -337,13 +337,13 @@ body {
 	}
 
 	.ms-tooltip__image {
-		@include prefix(mask-image, url('../img/tooltip-shape.png'));
-		@include prefix(mask-repeat, no-repeat);
-		background-image: url(../img/img-kletterstart.jpg);
-		background-position: -20px -20px;
+		// @include prefix(mask-image, url('../img/tooltip-shape.svg'));
+		// @include prefix(mask-repeat, no-repeat);
+		background-image: url(../img/img-kletterstart.png);
+		background-position: 0 0;
 		background-repeat: no-repeat;
 		width: 119px;
-		height: 133px;
+		height: 122px;
 		position: absolute;
 		top: -1px;
 		left: -1px;
